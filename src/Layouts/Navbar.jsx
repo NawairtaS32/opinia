@@ -4,26 +4,23 @@ import {IoHomeOutline, } from "react-icons/io5";
 import {IoIosChatbubbles, IoIosNotificationsOutline, IoIosSearch} from "react-icons/io";
 import {GrGroup} from "react-icons/gr";
 import iconSatu from "../Images/icon1.svg";
+import logoNavbar from "../Images/logoNavbar.svg";
 import Menu from "../Components/Menu";
 // import {} from "react-icons/";
 
 export default function Navbar() {
     return(
-        <div className="navbar bg-base-100 gap-[500px] lg:py-[24px] px-[20px] border-t-2 lg:border-b-2 border-slate-200 fixed bottom-[0px] lg:bottom-[880px] lg:top-0 right-0 left-0 ">
-            <div className="navbar-start hidden lg:flex">
-                <div className="form-control">
-                    <div className="flex gap-2 w-[294px] h-[40px] border-2 p-2 rounded-[19px]">
-                        <button>
-                            <BiSearch className="text-xl" />
-                        </button>
-                        <input type="text" placeholder="Cari di Opinia" className="input w-[238px] h-[19px] " />
-                    </div>
+        <div className="flex lg:place-content-between">
+            <div className="lg:flex gap-[500px] hidden">
+                <div className="flex  gap-[8px] rounded-[19px] justify-center items-center w-[294px] h-[40px] bg-[#F5F5F5] ">
+                    <BiSearch  className=" text-xl "/>
+                    <input type="text" placeholder="Cari di Opinia" className="input bg-[#F5F5F5] w-[238px] h-[19px] " />
+                </div>
+                <div className="">
+                    <img src={logoNavbar} alt="" />
                 </div>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <img src="http://assets.kompasiana.com/items/album/2022/08/15/opinia-62fa47d808a8b506414dc552.png" alt="" className="w-[140px]" />
-            </div>
-            <div className="navbar-end gap-6 w-screen lg:w-lg pr-10 lg:pr-0  ">
+            <div className="flex lg:gap-8 gap-12 ">
                 <button className="btn btn-ghost btn-circle">
                     <IoHomeOutline className="text-3xl" />
                 </button>
@@ -42,6 +39,7 @@ export default function Navbar() {
                 <img src={iconSatu} alt="iconSatu" className="hidden lg:flex" />           
                 <Menu />
             </div>
+
         </div>
     )
 };
