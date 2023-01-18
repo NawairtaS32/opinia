@@ -1,12 +1,22 @@
 import {SlOptions} from "react-icons/sl";
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 export default function MenuList() {
     const [isOpen, setIsOpen] = useState(false)
 
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 700;
+
+    useEffect(() => {
+        const handleResizeWindow = () => setWidth(window.innerWidth);
+        // subscribe to window resize event "onComponentDidMount"
+        window.addEventListener("resize", handleResizeWindow);
+        return () => {
+          // unsubscribe "onComponentDestroy"
+          window.removeEventListener("resize", handleResizeWindow);
+        };
+    }, []);
 
       function closeModal() {
         setIsOpen(false)
